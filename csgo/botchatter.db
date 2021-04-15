@@ -1,0 +1,1432 @@
+//----------------------------------------------------------------------------
+// BotProfile.db
+// Author: Michael S. Booth, Turtle Rock Studios (www.turtlerockstudios.com)
+// By: LaGi
+// This database defines bot "personalities". 
+// Feel free to edit it and define your own bots.
+//
+
+
+//----------------------------------------------------------------------------
+
+//
+// All profiles begin with this data and overwrite their own
+//
+Default
+	Skill = 49
+	Aggression = 50
+	ReactionTime = 0.33
+	AttackDelay = 0
+	Teamwork = 75
+	AimFocusInitial = 6				// initial focus spread in degrees (from desired center)
+	AimFocusDecay = 0.25			// how much focus shrinks per second (.25 = 25% of size after 1 sec)
+	AimFocusOffsetScale = 0.525		// controls accuracy when tracking to target (0 == perfect, should always be < 1)
+	AimfocusInterval = 0.9			// how often focus is adjusted (smaller intervals means better movement tracking)
+	Difficulty = NORMAL
+	LookAngleMaxAccelNormal = 25000
+	LookAngleStiffnessNormal = 1800.0
+	LookAngleDampingNormal = 50.0
+	LookAngleMaxAccelAttacking = 45000
+	LookAngleStiffnessAttacking = 2200.0
+	LookAngleDampingAttacking = 36.1
+End
+
+//----------------------------------------------------------------------------
+
+//
+// These templates inherit from Default and override with their values
+// The name of the template defines a type that is used by individual bot profiles
+//
+
+// weapon preference templates
+Template SniperPro
+	WeaponPreference = awp
+	WeaponPreference = ak47
+	WeaponPreference = m4a1
+	WeaponPreference = galilar
+	WeaponPreference = deagle
+End
+
+Template Rifle
+	WeaponPreference = ak47
+	WeaponPreference = m4a1
+	WeaponPreference = galilar
+	WeaponPreference = famas
+	WeaponPreference = deagle
+End
+
+Template Punch
+	WeaponPreference = aug
+	WeaponPreference = sg556
+	WeaponPreference = mp7
+	WeaponPreference = ump45
+	WeaponPreference = deagle
+End
+
+Template Sniper
+	WeaponPreference = awp
+	WeaponPreference = scar20
+	WeaponPreference = g3sg1
+	WeaponPreference = ssg08
+	WeaponPreference = deagle
+End
+
+Template AutoSniper
+	WeaponPreference = scar20
+	WeaponPreference = g3sg1
+	WeaponPreference = ump45
+	WeaponPreference = mac10
+	WeaponPreference = deagle
+End
+
+Template Power
+	WeaponPreference = negev
+	WeaponPreference = m249
+	WeaponPreference = p90
+	WeaponPreference = mag7
+	WeaponPreference = deagle
+End
+
+Template Shotgun
+	WeaponPreference = m249
+	WeaponPreference = xm1014
+	WeaponPreference = mag7
+	WeaponPreference = sawedoff
+	WeaponPreference = deagle
+End
+
+Template Spray
+	WeaponPreference = p90
+	WeaponPreference = mp7
+	WeaponPreference = mp9
+	WeaponPreference = ump45
+	WeaponPreference = deagle
+End
+
+Template Pistol
+	WeaponPreference = deagle
+	WeaponPreference = fiveseven
+	WeaponPreference = tec9
+	WeaponPreference = elite
+	WeaponPreference = p250
+End
+
+
+// skill templates
+Template Hack
+	Skill = 100
+	Aggression = 100
+	ReactionTime = 0.0000000000000000000000001
+	Difficulty = EXPERT
+	AimFocusInitial = 0.01		//0.5
+	AimFocusDecay = 0.01		//0.1
+	AimFocusOffsetScale = 0.01	//0.05
+	AimfocusInterval = 0.01		//0.05
+	
+	LookAngleMaxAccelNormal = 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999.9
+	LookAngleStiffnessNormal = 5000.0
+	LookAngleDampingNormal = 45.0
+	LookAngleMaxAccelAttacking = 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999.9
+	LookAngleStiffnessAttacking = 5200.0
+	LookAngleDampingAttacking = 40.100
+End
+
+Template Elite
+	Skill = 100
+	Aggression = 75
+	Difficulty = EXPERT
+	AimFocusInitial = 1			//0.5
+	AimFocusDecay = 0.1			//0.1
+	AimFocusOffsetScale = 0.01	//0.05
+	AimfocusInterval = 0.01		//0.05
+End
+
+Template EliteSpray
+	Skill = 49
+	Aggression = 100
+	Difficulty = EXPERT
+	AimFocusInitial = 1			//0.5
+	AimFocusDecay = 0.1			//0.1
+	AimFocusOffsetScale = 0.01	//0.05
+	AimfocusInterval = 0.01		//0.05
+End
+
+Template Expert
+	Skill = 90
+	Aggression = 75
+	Difficulty = EXPERT+HARD
+	AimFocusInitial = 1			//2
+	AimFocusDecay = 0.1			//0.2
+	AimFocusOffsetScale = 0.075	//0.15
+	AimfocusInterval = 0.1		//0.2
+End
+
+Template VeryHard
+	Skill = 75
+	Aggression = 100
+	Difficulty = HARD
+	AimFocusInitial = 2.5		//5
+	AimFocusDecay = 0.15		//0.3
+	AimFocusOffsetScale = 0.085	//0.17
+	AimfocusInterval = 0.15		//0.3
+End
+
+Template Hard
+	Skill = 49
+	Aggression = 75
+	Difficulty = HARD
+	AimFocusInitial = 5			//10
+	AimFocusDecay = 0.2			//0.4
+	AimFocusOffsetScale = 0.10	//0.2
+	AimfocusInterval = 0.20		//0.4
+End
+
+Template NormalSniper
+	Skill = 50
+	Aggression = 25
+	ReactionTime = 0.8			//0.4
+	AttackDelay = .4			//.8
+	Difficulty = NORMAL
+	AimFocusInitial = 2			//2
+	AimFocusDecay = 0.2			//0.2
+	AimFocusOffsetScale = 0.15	//0.15
+	AimfocusInterval = 0.2		//0.2
+End
+
+Template Tough
+	Skill = 25
+	Aggression = 50
+	ReactionTime = 1.0			//0.5
+	AttackDelay = .35			//.7
+	Difficulty = NORMAL
+	AimFocusInitial = 5			//10
+	AimFocusDecay = 0.6			//0.4
+	AimFocusOffsetScale = 0.375	//0.25
+	AimfocusInterval = 0.75		//0.5
+End
+
+Template Normal
+	Skill = 10
+	Aggression = 75
+	ReactionTime = 1.2			//0.6
+	AttackDelay = .4			//.8
+	Difficulty = NORMAL
+	AimFocusInitial = 6			//12
+	AimFocusDecay = 0.75		//0.5
+	AimFocusOffsetScale = 0.525	//0.35
+	AimfocusInterval = 0.9		//0.6
+End
+
+Template EasySniper
+	Skill = 10
+	Aggression = 0
+	ReactionTime = 1.2			//0.6
+	AttackDelay = 0.8			//0.8
+	Difficulty = EASY
+	AimFocusInitial = 4			//2
+	AimFocusDecay = 0.4			//0.2
+	AimFocusOffsetScale = 0.3	//0.15
+	AimfocusInterval = 0.4		//0.2
+	
+	WeaponPreference = ssg08
+	
+	LookAngleMaxAccelNormal = 4000.0
+	LookAngleStiffnessNormal = 100.0
+	LookAngleDampingNormal = 25.0
+	LookAngleMaxAccelAttacking = 8000.0
+	LookAngleStiffnessAttacking = 150.0
+	LookAngleDampingAttacking = 30.0
+End
+
+Template Fair
+	Skill = 0
+	Aggression = 50
+	ReactionTime = 1.8			//0.6
+	AttackDelay = 1.8			//.9
+	Difficulty = EASY
+	AimFocusInitial = 8.5		//17
+	AimFocusDecay = 0.9			//0.6
+	AimFocusOffsetScale = 0.75	//0.5
+	AimfocusInterval = 0.9		//0.7
+	
+	WeaponPreference = bizon
+	
+	LookAngleMaxAccelNormal = 2000.0
+	LookAngleStiffnessNormal = 100.0
+	LookAngleDampingNormal = 25.0
+	LookAngleMaxAccelAttacking = 4000.0
+	LookAngleStiffnessAttacking = 150.0
+	LookAngleDampingAttacking = 30.0
+End
+
+Template Easy
+	Skill = 0
+	Aggression = 75
+	ReactionTime = 1.8			//0.6
+	AttackDelay = 1.4			//.7
+	Difficulty = EASY
+	AimFocusInitial = 10		//20
+	AimFocusDecay = 0.9			//0.7
+	AimFocusOffsetScale = 0.9	//0.6
+	AimfocusInterval = 0.95		//0.7
+	
+	WeaponPreference = bizon
+	
+	LookAngleMaxAccelNormal = 1000.0
+	LookAngleStiffnessNormal = 100.0
+	LookAngleDampingNormal = 25.0
+	LookAngleMaxAccelAttacking = 2000.0
+	LookAngleStiffnessAttacking = 150.0
+	LookAngleDampingAttacking = 30.0
+End
+
+
+//----------------------------------------------------------------------------
+//
+// These are the individual bot profiles, which inherit first from 
+// Default and then the specified Template(s), in order
+//
+
+//----------------------------------
+Elite "辣雞" 
+	WeaponPreference = awp
+	WeaponPreference = ak47
+	WeaponPreference = m4a1
+    WeaponPreference = galilar
+	WeaponPreference = ump45
+	
+	Teamwork = 75
+	Aggression = 75
+End 
+
+Expert "─€=双面刃=>" 
+	Difficulty = HARD
+	
+	WeaponPreference = sg556
+	WeaponPreference = aug
+	WeaponPreference = p90
+	WeaponPreference = xm1014
+	WeaponPreference = ump45
+	
+	Teamwork = 75
+	Aggression = 75
+End 
+
+VeryHard+Sniper "木板上的魚、バカ" 
+	Teamwork = 90
+	Aggression = 25
+End 
+
+Expert+SniperPro "uj" 
+	Teamwork = 75
+	Aggression = 75
+End 
+
+Tough "LuLu" 
+	WeaponPreference = p90
+	WeaponPreference = negev
+	WeaponPreference = mp7
+	WeaponPreference = bizon
+	WeaponPreference = mp9
+	
+	Teamwork = 50
+	Aggression = 25
+End 
+
+//曾經的戰友------------------------------------
+
+Elite "AntiTher" 
+    WeaponPreference = awp
+    WeaponPreference = ak47
+    WeaponPreference = m4a1
+    WeaponPreference = p90
+    WeaponPreference = mp7
+	
+	Teamwork = 75
+	Aggression = 90
+End 
+
+Elite+SniperPro "酔っ払った銃手" 
+	Teamwork = 75
+	Aggression = 90
+End 
+
+Elite+SniperPro "側臉薛之謙" 
+	Teamwork = 75
+	Aggression = 90
+End 
+
+//VRChat----------------------------------
+
+//神樂
+
+Expert+Rifle "本田佑一" 
+	Teamwork = 50
+	Aggression = 75
+End 
+
+Expert+Punch "聖城TWXD" 
+	Teamwork = 75
+	Aggression = 50
+End 
+
+Hard "末魂-Mohun" 
+	Teamwork = 90
+	Aggression = 25
+End 
+
+Hard "+7" 
+	Teamwork = 90
+	Aggression = 25
+End 
+
+Expert+SniperPro "二胡嚶嚶" 
+	Teamwork = 75
+	Aggression = 90
+End 
+
+//大長腿世界
+
+Expert+Punch "歐歐" 
+	Teamwork = 50
+	Aggression = 75
+End 
+
+VeryHard "MoeRice" 
+	Teamwork = 75
+	Aggression = 50
+End 
+
+Expert+Rifle "yuyu >3<" 
+	Teamwork = 90
+	Aggression = 75
+End 
+
+VeryHard+Sniper "YOZAKURA" 
+	Teamwork = 90
+	Aggression = 25
+End 
+
+Elite+SniperPro "永恆" 
+	Teamwork = 75
+	Aggression = 90
+End 
+
+Expert+SniperPro "永渣 =3=b" 
+	Difficulty = HARD
+	
+	Teamwork = 75
+	Aggression = 90
+End 
+
+Elite+SniperPro "🌸ℛ𝓲𝓷" 
+	Teamwork = 75
+	Aggression = 90
+End 
+
+Expert "血戰 Blood wars" 
+	Teamwork = 75
+	Aggression = 90
+End 
+
+Hack "°Ruby兔(Hack)" 
+	Teamwork = 25
+	Aggression = 100
+End 
+
+VeryHard "°Ruby兔" 
+	Teamwork = 75
+	Aggression = 75
+End 
+
+EliteSpray+Shotgun "黒子テツヤ" 
+	Teamwork = 0
+	Aggression = 100
+End 
+
+//Bery
+
+Hard "Bery" 
+	Teamwork = 90
+	Aggression = 25
+End 
+
+Elite+Sniper "阿程Raylin" 
+	Teamwork = 75
+	Aggression = 50
+End 
+
+Elite+Punch "狐狸偷桃" 
+	Teamwork = 50
+	Aggression = 90
+End 
+
+Elite+Punch "奇利托" 
+	Teamwork = 50
+	Aggression = 75
+End 
+
+//好吃
+
+Hard "Naomi玲蘭" 
+	WeaponPreference = m249
+	WeaponPreference = xm1014
+	WeaponPreference = negev
+	WeaponPreference = deagle
+	
+	Teamwork = 50
+	Aggression = 0
+End 
+
+Expert+Punch "安安kgkr" 
+	Teamwork = 75
+	Aggression = 90
+End 
+
+Expert+Punch "真的很好吃" 
+	Teamwork = 75
+	Aggression = 90
+End 
+
+Expert+Punch "綾裕" 
+	Teamwork = 75
+	Aggression = 90
+End 
+
+VeryHard+Punch "kacer32" 
+	Teamwork = 90
+	Aggression = 25
+End 
+
+EliteSpray+Shotgun "童天木本木" 
+	Teamwork = 75
+	Aggression = 100
+End 
+
+Hard "mako草綿綿" 
+	Teamwork = 90
+	Aggression = 0
+End 
+
+
+//Other
+
+Elite+Sniper "Sotis" 
+	Teamwork = 75
+	Aggression = 50
+End 
+
+Expert+AutoSniper "真新镇の黑心镇长sama" 
+	Teamwork = 75
+	Aggression = 75
+End 
+
+Expert+AutoSniper "［TW］✇ BunWohS ✇" 
+	Teamwork = 75
+	Aggression = 50
+End 
+
+Expert "柯比Cody" 
+	Teamwork = 90
+	Aggression = 25
+End 
+
+Hard "weicheng chang 90" 
+	Teamwork = 50
+	Aggression = 50
+End 
+
+//S4------------------------------------
+
+Elite+SniperPro "SAKio" 
+	Teamwork = 75
+	Aggression = 75
+End 
+
+Elite+Rifle "YaDoHa"
+	Teamwork = 75
+	Aggression = 100
+End 
+
+Expert+Punch "Be Grateful" 
+	Teamwork = 90
+	Aggression = 50
+End 
+
+EliteSpray+Shotgun "Black Aries" 
+	Difficulty = HARD
+	
+	Teamwork = 0
+	Aggression = 100
+End 
+
+VeryHard+AutoSniper "Schwarz．Katze - 阿恩 -" 
+	Teamwork = 50
+	Aggression = 50
+End 
+
+Expert+Punch "nightgametime" 
+	Teamwork = 75
+	Aggression = 25
+End 
+
+VeryHard+Spray "zed95014427" 
+	Teamwork = 75
+	Aggression = 25
+End 
+
+//S3------------------------------------
+
+Elite+Rifle "CianYu" 
+	Teamwork = 75
+	Aggression = 90
+End 
+
+Expert "N Ryu" 
+	WeaponPreference = awp
+	WeaponPreference = aug
+	WeaponPreference = p90
+	WeaponPreference = ssg08
+	WeaponPreference = ump45
+	
+	Teamwork = 75
+	Aggression = 75
+End 
+
+Expert+Power "Izayoi" 
+	Teamwork = 50
+	Aggression = 100
+End 
+
+Expert+Punch "K1" 
+	Teamwork = 50
+	Aggression = 90
+End 
+
+Expert+Rifle "新豪男人" 
+	Teamwork = 75
+	Aggression = 90
+End 
+
+Elite+SniperPro "柚子" 
+	Teamwork = 75
+	Aggression = 75
+End 
+
+Expert+Punch "傑哥"
+	Teamwork = 75
+	Aggression = 75
+End
+
+Hard+Spray "GB斌" 
+	Teamwork = 90
+	Aggression = 25
+End 
+
+EliteSpray+Shotgun "無敵a鋼筋" 
+	Teamwork = 50
+	Aggression = 50
+End 
+
+EliteSpray+Shotgun "Mapa" 
+	Teamwork = 25
+	Aggression = 75
+End 
+
+//S2------------------------------------
+
+Elite "ＴｈｅＨ" 
+    WeaponPreference = awp
+    WeaponPreference = sg556
+	WeaponPreference = aug
+    WeaponPreference = p90
+    WeaponPreference = ump45
+	
+	Teamwork = 75
+	Aggression = 75
+End 
+
+Elite "優雅柴犬"
+    WeaponPreference = awp
+    WeaponPreference = sg556
+    WeaponPreference = ak47
+    WeaponPreference = m4a1
+    WeaponPreference = ump45
+	
+	Teamwork = 75
+	Aggression = 75
+End 
+
+Elite "Finn."
+	WeaponPreference = scar20
+	WeaponPreference = sg556
+	WeaponPreference = m4a1
+	WeaponPreference = p90
+	WeaponPreference = ump45
+
+	Teamwork = 50
+	Aggression = 90
+End 
+
+Elite+Sniper "KILL999" 
+	Teamwork = 50
+	Aggression = 25
+End 
+
+Elite+Sniper "Sakura" 
+	Teamwork = 75
+	Aggression = 25
+End 
+
+Hard+AutoSniper "上帝打野專殺畜牲" 
+	Teamwork = 25
+	Aggression = 50
+End 
+
+Hard+Spray "谷川悟" 
+	Teamwork = 90
+	Aggression = 25
+End 
+
+//Valve系列-------------------------------
+
+Elite "Maverick"		//CS:CZ中的3費神BOT
+	Cost = 3			// cheaper because he doesn't listen at all
+
+	Teamwork = 0
+	Aggression = 100
+
+	Skin = 3
+	VoicePitch = 98
+	
+	Skill = 100
+	Rank = 1800
+	ReactionTime = 0.2
+	Cost = 4
+	Difficulty = HARD+EXPERT
+	VoicePitch = 85
+	
+	AimFocusInitial = 0.5
+	AimFocusDecay = 0.1
+	AimFocusOffsetScale = 0.05
+	AimfocusInterval = 0.05
+	
+	WeaponPreference = ak47
+	WeaponPreference = m4a1
+	WeaponPreference = galil
+	WeaponPreference = famas
+	WeaponPreference = mp5
+End
+
+EASY "Lunatic"					//必定購買手槍
+	WeaponPreference = m4a1		// kind of a hack - give him a weapon he cant buy so he uses pistols
+	WeaponPreference = elites
+	Teamwork = 75
+    Aggression = 100
+	Skin = 4
+	
+	Skill = 0
+	ReactionTime = 0.5			// 0.25 - 0.5
+	AttackDelay = 1.5			// 1.0 - 1.5f
+	Cost = 1
+	Difficulty = EASY
+	VoicePitch = 110
+End
+
+Elite+Rifle "Bill"		//L4D2戰場老兵-比爾
+	Difficulty = EXPERT
+	Teamwork = 100
+    Aggression = 100
+End
+
+//動漫人物---------------------------------
+
+EliteSpray "LLENN"	//粉紅惡魔
+	WeaponPreference = p90
+	
+	Teamwork = 90
+    Aggression = 100
+End
+
+Elite+Sniper "Sinon"	//冰之狙擊手
+	Teamwork = 90
+    Aggression = 25
+End
+
+//----------------------------------------
+
+Tough+Rifle Cliffe
+	Skin = 1
+	VoicePitch = 95
+End
+
+Tough+Spray Minh
+	Skin = 2
+	VoicePitch = 105
+End
+
+Tough+Shotgun Crusher
+	Skin = 4
+	VoicePitch = 84
+End
+
+Tough+Punch Garret
+	Skin = 4
+	VoicePitch = 110
+End
+
+Tough+Power Rock
+	Skin = 2
+	VoicePitch = 80
+End
+
+Tough+Punch Shark
+	Skin = 4
+	VoicePitch = 90
+End
+
+Tough+Rifle Wolf
+	Skin = 2
+	VoicePitch = 98
+End
+
+Tough+Rifle Gunner
+	Skin = 1
+	VoicePitch = 96
+End
+
+NormalSniper+Sniper Vitaliy
+	Skin = 3
+	VoicePitch = 105
+End
+
+Tough+Punch Ridgway
+	Skin = 3
+	VoicePitch = 115
+End
+
+Tough+Rifle Steel
+	Skin = 1
+	VoicePitch = 84
+End
+
+Tough+Punch Stone
+	Skin = 4
+	VoicePitch = 86
+End
+
+
+//----------------------------------------
+
+Tough+Rifle Arnold
+	VoicePitch = 85
+End
+
+Tough+Rifle Brett
+	VoicePitch = 100
+End
+
+Tough+Punch Kurt
+	VoicePitch = 95
+End
+
+NormalSniper+Sniper Kyle
+	Cost = 5
+	VoicePitch = 115
+End
+
+Tough+Shotgun Moe
+	VoicePitch = 87
+End
+
+Tough+Rifle Quade
+	VoicePitch = 91
+End
+
+Tough+Rifle Quintin
+	VoicePitch = 101
+End
+
+Tough Ringo
+	VoicePitch = 112
+End
+
+Tough+Punch Rip
+	VoicePitch = 99
+End
+
+Tough+Rifle Zach
+	VoicePitch = 100
+End
+
+//----------------------------------------
+
+Normal+Power Cory
+	Skin = 1
+	VoicePitch = 110
+End
+
+NormalSniper+Sniper Quinn
+	Skin = 3
+	VoicePitch = 93
+End
+
+Normal+Rifle Seth
+	Skin = 2
+	VoicePitch = 100
+End
+
+Normal+Rifle Vinny
+	Skin = 4
+	VoicePitch = 86
+End
+
+
+//----------------------------------------
+
+Normal+Rifle Brian
+	Skin = 1
+	VoicePitch = 100
+End
+
+Normal+Rifle Chad
+	Skin = 1
+	VoicePitch = 95
+End
+
+Normal+Rifle Chet
+	Skin = 2
+	VoicePitch = 90
+End
+
+Normal+Spray Gabe
+	Skin = 4
+	VoicePitch = 102
+End
+
+Normal+Shotgun Hank
+	Skin = 1
+	VoicePitch = 98
+End
+
+Normal+Rifle Ivan
+	Skin = 2
+	VoicePitch = 96
+End
+
+Normal+Punch Jim
+	Skin = 4
+	VoicePitch = 103
+End
+
+Normal+Punch Joe
+	Skin = 1
+	VoicePitch = 105
+End
+
+Normal+Rifle John
+	Skin = 2
+	VoicePitch = 97
+End
+
+Normal+Rifle Tony
+	Skin = 4
+	VoicePitch = 84
+End
+
+Normal+Punch Tyler
+	Skin = 1
+	VoicePitch = 90
+End
+
+Normal+Rifle Victor
+	Skin = 2
+	VoicePitch = 98
+End
+
+NormalSniper+Sniper Vladimir
+	Skin = 3
+	VoicePitch = 110
+End
+
+Normal+Spray Zane
+	Skin = 4
+	VoicePitch = 103
+End
+
+Normal+Rifle Zim
+	Skin = 2
+	VoicePitch = 110
+End
+
+//----------------------------------------
+
+EasySniper+Sniper Adrian
+	Skin = 3
+	VoicePitch = 120
+End
+
+EasySniper+Sniper Bank
+	Skin = 1
+	VoicePitch = 95
+End
+
+Fair+Rifle Brad
+	Skin = 1
+	VoicePitch = 100
+End
+
+Fair+Rifle Connor
+	Skin = 2
+	VoicePitch = 104
+End
+
+Fair+Rifle Dave
+	Skin = 4
+	VoicePitch = 98
+End
+
+Fair Dan
+	Skin = 1
+	VoicePitch = 100
+End
+
+Fair+Rifle Derek
+	Skin = 2
+	VoicePitch = 102
+End
+
+Fair+Shotgun Don
+	Skin = 4
+	VoicePitch = 95
+End
+
+Fair+Rifle Eric
+	Skin = 1
+	VoicePitch = 95
+End
+
+Fair+Rifle Erik
+	Skin = 2
+	VoicePitch = 110
+End
+
+Fair+Rifle Finn
+	Skin = 4
+	VoicePitch = 112
+End
+
+Fair Jeff
+	Skin = 1
+	VoicePitch = 90
+End
+
+Fair+Rifle Kevin
+	Skin = 2
+	VoicePitch = 115
+End
+
+Fair+Rifle Reed
+	Skin = 4
+	VoicePitch = 107
+End
+
+Fair+Rifle Rick
+	Skin = 2
+	VoicePitch = 102
+End
+
+Fair Ted
+	Skin = 1
+	VoicePitch = 98
+End
+
+Fair+Rifle Troy
+	Skin = 2
+	VoicePitch = 100
+End
+
+Fair+Rifle Wade
+	Skin = 4
+	VoicePitch = 95
+End
+
+Fair+Rifle Wayne
+	Skin = 1
+	VoicePitch = 86
+End
+
+Fair+Rifle Xander
+	Skin = 2
+	VoicePitch = 100
+End
+
+Fair+Rifle Xavier
+	Skin = 4
+	VoicePitch = 95
+End
+
+//----------------------------------------
+
+Fair+Rifle Adam
+	Skin = 1
+	VoicePitch = 105
+End
+
+Fair+Punch Andy
+	Skin = 2
+	VoicePitch = 90
+End
+
+Fair Chris
+	Skin = 3
+	VoicePitch = 100
+End
+
+Fair Colin
+	Skin = 4
+	VoicePitch = 107
+End
+
+Fair+Rifle Dennis
+	Skin = 1
+	VoicePitch = 104
+End
+
+Fair Doug
+	Skin = 2
+	VoicePitch = 110
+End
+
+EasySniper+Sniper Duffy
+	Skin = 2
+	VoicePitch = 110
+End
+
+Fair Gary
+	Skin = 3
+	VoicePitch = 95
+End
+
+Fair Grant
+	Skin = 4
+	VoicePitch = 112
+End
+
+Fair Greg
+	Skin = 1
+	VoicePitch = 111
+End
+
+EasySniper+Sniper Ian
+	Skin = 3
+	VoicePitch = 115
+End
+
+Fair Jerry
+	Skin = 4
+	VoicePitch = 112
+End
+
+Fair Jon
+	Skin = 1
+	VoicePitch = 96
+End
+
+Fair Keith
+	Skin = 2
+	VoicePitch = 98
+End
+
+Fair Mark
+	Skin = 4
+	VoicePitch = 110
+End
+
+Fair Matt
+	Skin = 1
+	VoicePitch = 95
+End
+
+Fair+Rifle Mike
+	Skin = 2
+	VoicePitch = 100
+End
+
+Fair Nate
+	Skin = 4
+	VoicePitch = 99
+End
+
+Fair Paul
+	Skin = 3
+	VoicePitch = 98
+End
+
+Fair Scott
+	Skin = 1
+	VoicePitch = 105
+End
+
+Fair Steve
+	Skin = 2
+	VoicePitch = 115
+End
+
+Fair Tom
+	Skin = 3
+	VoicePitch = 110
+End
+
+Fair Yahn
+	Skin = 4
+	VoicePitch = 92
+End
+
+//----------------------------------------
+
+Easy Alfred
+	VoicePitch = 110
+End
+
+Easy Brandon
+	VoicePitch = 99
+End
+
+Easy+Spray Calvin
+	VoicePitch = 120
+End
+
+Easy Dean
+	VoicePitch = 111
+End
+
+Easy Dustin
+	VoicePitch = 98
+End
+
+Easy Ethan
+	VoicePitch = 112
+End
+
+Easy Harold
+	VoicePitch = 90
+End
+
+Easy Henry
+	VoicePitch = 120
+End
+
+Easy Irving
+	VoicePitch = 118
+End
+
+Easy Jason
+	VoicePitch = 116
+End
+
+Easy+Spray Jenssen
+	VoicePitch = 112
+End
+
+Easy Josh
+	VoicePitch = 114
+End
+
+Easy Martin
+	VoicePitch = 110
+End
+
+Easy Nick
+	VoicePitch = 98
+End
+
+Easy Norm
+	VoicePitch = 92
+End
+
+Easy Orin
+	VoicePitch = 113
+End
+
+Easy Pat
+	VoicePitch = 114
+End
+
+Easy Perry
+	VoicePitch = 115
+End
+
+Easy Ron
+	VoicePitch = 100
+End
+
+Easy Shawn
+	VoicePitch = 102
+End
+
+Easy Tim
+	VoicePitch = 98
+End
+
+Easy Will
+	VoicePitch = 96
+End
+
+Easy Wyatt
+	VoicePitch = 94
+End
+
+//----------------------------------------
+
+Easy Albert
+	VoicePitch = 100
+End
+
+Easy Allen
+	VoicePitch = 110
+End
+
+Easy Bert
+	VoicePitch = 120
+End
+
+Easy Bob
+	VoicePitch = 99
+End
+
+Easy Cecil
+	VoicePitch = 120
+End
+
+Easy Clarence
+	VoicePitch = 125
+End
+
+Easy Elliot
+	VoicePitch = 110
+End
+
+Easy Elmer
+	VoicePitch = 100
+End
+
+Easy Ernie
+	VoicePitch = 112
+End
+
+Easy Eugene
+	VoicePitch = 121
+End
+
+Easy Fergus
+	VoicePitch = 99
+End
+
+Easy Ferris
+	VoicePitch = 119
+End
+
+Easy Frank
+	VoicePitch = 118
+End
+
+Easy Frasier
+	VoicePitch = 117
+End
+
+Easy Fred
+	VoicePitch = 116
+End
+
+Easy George
+	VoicePitch = 115
+End
+
+Easy Graham
+	VoicePitch = 114
+End
+
+Easy Harvey
+	VoicePitch = 112
+End
+
+Easy Irwin
+	VoicePitch = 111
+End
+
+Easy Larry
+	VoicePitch = 105
+End
+
+Easy Lester
+	VoicePitch = 110
+End
+
+Easy Marvin
+	VoicePitch = 109
+End
+
+Easy Neil
+	VoicePitch = 108
+End
+
+Easy Niles
+	VoicePitch = 122
+End
+
+Easy Oliver
+	VoicePitch = 120
+End
+
+Easy Opie
+	VoicePitch = 125
+End
+
+Easy Ryan
+	VoicePitch = 95
+End
+
+Easy Toby
+	VoicePitch = 92
+End
+
+Easy Ulric
+	VoicePitch = 100
+End
+
+Easy Ulysses
+	VoicePitch = 102
+End
+
+Easy Uri
+	VoicePitch = 104
+End
+
+Easy Waldo
+	VoicePitch = 108
+End
+
+Easy Wally
+	VoicePitch = 95
+End
+
+Easy Walt
+	VoicePitch = 100
+End
+
+Easy Wesley
+	VoicePitch = 120
+End
+
+Easy Yanni
+	VoicePitch = 112
+End
+
+Easy Yogi
+	VoicePitch = 99
+End
+
+Easy Yuri
+	VoicePitch = 110
+End
